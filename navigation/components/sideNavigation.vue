@@ -6,14 +6,12 @@
          <p v-else>{{ navigationData.name }}...</p>
       </div>
       <div class="navigation-links">
-            <nuxt-link v-for="link in navigationData.navLink" :key="link" :to="link.path">
-               <span>
-                  {{ link.icon }}
-               </span>
-               <span>
-                  {{ link.name }}
-               </span>   
-            </nuxt-link>
+         <nuxt-link v-for="link in navigationData.navLink" :key="link" :to="link.path">
+            <span v-html="link.icon"></span>
+            <p>
+               {{ link.name }}
+            </p>   
+         </nuxt-link>
       </div>
    </div>
 </template>
@@ -77,15 +75,29 @@ if(props.navigationData.name.length > 8) {
 }
 
 .navigation-links {
-   padding: 15px;
+   padding: 10px 26px;
    display: flex;
    flex-direction: column;
    align-items: flex-start;
    a {
-      margin-top: 10px;
-
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      &:nth-child(1){
+         margin-top: 15px;
+      }
       &:hover {
-         color: $primary;
+         p{
+            color: $primary;
+         }
+         span{
+            fill: $primary;
+         }
+      }
+      p {
+         margin-left: 25px;
       }
    }
 }
