@@ -39,6 +39,7 @@ if(props.navigationData.name.length > 8) {
    border-right: 1px solid #bbafaf;
    transition: 0.5s;
    overflow: hidden;
+   box-shadow: 1px 0px 3px 0px #c9c9c9;
    &:hover {
       width: 200px;
       transition: 0.5s;
